@@ -1,18 +1,12 @@
-users:list=[
-    {"name":"Mateusz","location":"Węgorzewo","posts":100},
-    {"name": "Wiktoria", "location": "Chełm", "posts":6},
-    {"name": "Sabina", "location": "Opole", "posts":110},
-    {"name": "Weronika", "location": "Tomaszów Mazowiecki", "posts":6},
-    {"name": "Julia", "location": "Żyrardów", "posts":50},
-]
+from untils.model import users
+from untils.controller import get_user_into
 
+def main():
+    print(f"Witaj {users[0]["name"]}")
+    get_user_into(users[1:])
 
-print(f"Witaj {users[0]["name"]}")
-
-for user in users:
-        print(f"Twój znajomy {user["name"]} z {user["location"]} opublikował {user["posts"]} postów.")
-
-
+if __name__ == "__main__":
+    main()
 
 
 
