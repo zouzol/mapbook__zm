@@ -1,9 +1,27 @@
-def get_user_into(user_data:list)->None:
-    for user in users:
-        print(f"Twój znajomy {user["name"]} z {user["location"]} opublikował {user["posts"]} postów.")
+def get_user_info(users_data: list) -> None:
+    for user in users_data:
+        print(f"Twój znajomy {user['name']} z miejscowości: {user['location']}, opublikował {user['posts']} postów ")
 
-def add_user(users_data:list):
-    new_name=input("Podaj imię:")
-    new_location=input("Podaj miejsce: ")
-    new_posts=input("Podaj liczbę postów: ")
-    users_data.append({"name":new_name,"location":new_location,"posts":new_posts})
+def add_user(users_data: list) -> None:
+    new_name = input('Podaj imię nowego użytkownika: ')
+    new_location = input('Podaj lokalizację nowego użytkownika: ')
+    new_posts = int(input('Podaj liczbę postów nowego użytkownika: '))
+    users_data.append({'name': new_name , 'location': new_location, 'posts': new_posts})
+
+def remove_user(users_data: list) -> None:
+    użytkownik_do_usunięcia = input('Podaj użytkownika do usunięcia: ')
+
+    for user in users_data:
+
+        if user['name'] == użytkownik_do_usunięcia:
+            users_data.remove(user)
+
+def update_user(users_data: list) -> None:
+
+    użytkownik_do_edycji = input('Podaj użytkownika do edycji: ')
+    for user in users_data:
+        if user['name'] == użytkownik_do_edycji:
+            user["name"]=input("Podaj nowe imie uzytkownika: ")
+            user["location"]=input("Podaj nowa lokalizacje uzytkownika: ")
+            user["posts"]=int(input("Podaj nowa liczbe postow: "))
+
